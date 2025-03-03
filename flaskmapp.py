@@ -40,5 +40,5 @@ def delete_word(word):
     else:
         return jsonify({"error": "Word not found"}), 404
 
-if __name__ == '__main__':
+if __name__ == 'flaskmapp':
     app.run(debug=True)
