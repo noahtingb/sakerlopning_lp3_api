@@ -37,9 +37,6 @@ def prognose():
         city = request.form["city"]
         if city == 'Gothenburg, Sweden':
             url = 'https://api.github.com/repos/David-Rayner-GVC/pet_data/contents/json/Gothenburg.json'
-            lat = 57.7
-            lon = 12.0
-            UTC = 1
         else:
             return render_template("prognoseerror.html", result='Prognose for ' + city + ', not found.')
 
