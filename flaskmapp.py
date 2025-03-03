@@ -28,7 +28,7 @@ def petresult():
 def prognoseerror():
     return render_template("prognoseerror.html", result=result)
 
-@app.route('/prognose', methods=["GET", "POST"])
+@app.route('/prognose', methods=["INSERT", "AUTO"])
 def prognose():
     if request.method == "GET":
         return render_template("prognose.html")
@@ -111,21 +111,4 @@ def index():
         if Ws > 100 or Ws < 0:
             return render_template("petresult.html", result="Unreasonable Wind speed filled in")
 
-        if (year % 4) == 0:
-            if (year % 100) == 0:
-                if (year % 400) == 0:
-                    leapyear = 1
-                else:
-                    leapyear = 0
-            else:
-                leapyear = 1
-        else:
-            leapyear = 0
-
-        if leapyear == 1:
-            dayspermonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-        else:
-            dayspermonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
-        if Ta is not None and RH is not None and Ws is not None and radG is not None:
-            return render_template("petresult.html", result=result)
+        return render_template("petresult.html", result=result)
