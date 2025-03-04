@@ -7,8 +7,8 @@ import pandas as pd
 import time
 
 app = Flask(__name__)
-app.config["DEBUG"] = True
-app.config["SECRET_KEY"] = "efiedoedkkkkfoiefnnoefnveodf"
+#app.config["DEBUG"] = True
+#app.config["SECRET_KEY"] = "efiedoedkkkkfoiefnnoefnveodf"
 
 @app.route('/questions', methods=["GENERAL", "SPECIFIC"])
 def questions():
