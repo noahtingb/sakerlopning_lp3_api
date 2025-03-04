@@ -11,7 +11,7 @@ class some(Resource):
         text = request.args.get('text')
 
         return {"text": text.upper()}
-
+    return {0:0}
 api.add_resource(some, "/")
 
 if __name__ == "__main__":
