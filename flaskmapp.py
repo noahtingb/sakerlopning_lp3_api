@@ -1,21 +1,23 @@
-from flask import Flask, jsonify, request
-from flask_restful import Api, Resource
-from flasgger import Swagger
+from flask import Flask, jsonify
 
 app = Flask(__name__)
-api = Api(app)
-swagger = Swagger(app)
 
-class some(Resource):
-    def get(self):
-        text = request.args.get('text')
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({"message": "Welcome to the simple API!"})
 
-        return {"text": text.upper()}
-    return {0:0}
-api.add_resource(some, "/")
+@app.route('/api/data', methods=['GET'])
+def get_data():
+    sample_data = {
+        "name": "John Doe",
+        "age": 30,
+        "city": "New York"
+    }
+    return jsonify(sample_data)
 
-if __name__ == "__main__":
-    app.run(debug=False)
+if __name__ == '__main__':
+    app.run(debug=True)
+
 """
 from flask import Flask, render_template, request, session
 from flask_restful import Api, Resource
