@@ -4,16 +4,7 @@ app = Flask(__name__)
 
 @app.route('/j', methods=['GET'])
 def home():
-    return jsonify({"message": "Welcome to the simple API!"})
-
-@app.route('/api/data', methods=['GET'])
-def get_data():
-    sample_data = {
-        "name": "John Doe",
-        "age": 30,
-        "city": "New York"
-    }
-    return jsonify(sample_data)
+    return {"message": "Welcome to the simple API!"}
 
 if __name__ == '__main__':
     app.run(debug=True)
