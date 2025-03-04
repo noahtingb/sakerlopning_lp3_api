@@ -4,10 +4,10 @@ app = Flask(__name__)
 
 @app.route('/j', methods=['GET'])
 def home():
-    return {"message": "Welcome to the simple API!"}
+    return jsonify({"message": "Welcome to the simple API!"})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
 
 """
 from flask import Flask, render_template, request, session
