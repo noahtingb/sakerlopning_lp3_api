@@ -2,13 +2,25 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-@app.route('/j', methods=['GET'])
+@app.route('/j', methods=['GET',"POST"])
 def home():
     return jsonify({"message": "Welcome to the simple API!"})
 
-if __name__ == '__main__':
-    app.run(debug=False)
+@app.route("/", methods=["GET", "POST"])
+def index():
+    if request.method == "GET":
+        return jsonify({"message": "Welcome to the simple API!"})
 
+    if request.method == "POST":
+        try:
+            Ta = jsonify({"message": "Welcome to the simple API!"})
+        except:
+            Ta = -999
+
+        return jsonify({"message": "Welcome to the simple API!"})
+
+if __name__ == '__main__':
+    app.run(debug=True)
 """
 from flask import Flask, render_template, request, session
 from flask_restful import Api, Resource
