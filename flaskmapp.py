@@ -12,7 +12,7 @@ class some(Resource):
 
         return {"text": text.upper()}
 
-api.add_resource(some, "/some")
+api.add_resource(some, "/")
 
 if __name__ == "__main__":
     app.run(debug=False)
