@@ -12,7 +12,7 @@ app.config["SECRET_KEY"] = "efiedoedkkkkfoiefnnoefnveodf"
 
 @app.route('/questions', methods=["GENERAL", "SPECIFIC"])
 def questions():
-    return json.loads("Error":"0")
+    return jsonify(json.loads("Error":"0"))
 
 
 @app.route('/prognose', methods=["MANUAL", "AUTO"])
@@ -24,7 +24,7 @@ def prognose():
             try:
                 cityparms[i]=request.form[i]:
             except:
-                return json.loads({"ERROR":"801"})#'Some params not found.'
+                return jsonify(json.loads({"ERROR":"801"})#'Some params not found.')
 
         if timenow()[:5]!=cityn["time"]:
             updatepet(cityparams)
@@ -40,14 +40,14 @@ def prognose():
         if cityn!=False:
             data_url = 'https://api.github.com/repos/noahtingb/saker_lopning_API_code6372/data/'+cityn.get('filename')+'.json'
         else:
-            return json.loads({"ERROR":"921"})#'Prognose for ' + city + ', not found.'
+            return jsonify(json.loads({"ERROR":"921"})#'Prognose for ' + city + ', not found.')
 
         if timenow()[:5]!=cityn["time"]:
             params=updatecity(cityn)
             updatepet(params)
         # download data from github
         req = requests.get(url)
-        return req 
+        return jsonify(req)
 def timenow():
     t1=time.asctime().split(" ")
     t1[4]=t1[4].split(":")
