@@ -6,16 +6,16 @@ app = Flask(__name__)
 api = Api(app)
 swagger = Swagger(app)
 
-class UppercaseText(Resource):
+class some(Resource):
     def get(self):
         text = request.args.get('text')
 
-        return jsonify({"text": text.upper()})
+        return {"text": text.upper()}
 
-api.add_resource(UppercaseText, "/uppercase")
+api.add_resource(some, "/some")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
 """
 from flask import Flask, render_template, request, session
 from flask_restful import Api, Resource
