@@ -7,7 +7,7 @@
     <script>
         async function fetchData() {
             try {
-                const response = await fetch('flaskmapp.py');
+                const response = await fetch('&flaskmapp.py');
                 const data = await response.json();
                 document.getElementById('output').innerText = JSON.stringify(data);
             } catch (error) {
@@ -17,8 +17,6 @@
     </script>
 </head>
 <body>
-    <h1>Call Python Script from HTML</h1>
-    <button onclick="fetchData()">Fetch Data</button>
     <pre id="output"></pre>
 </body>
 </html>
