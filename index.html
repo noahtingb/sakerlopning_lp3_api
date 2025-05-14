@@ -81,8 +81,10 @@
                 }
 
                 const result = await response.json();
-                console.log(result);
+                console.log(result.result);
                 
+                // Display the result
+                document.getElementById("result").textContent = "Result: {result.result.toFixed(1)}";
                 // Display the result
                 document.getElementById("result").textContent = `Result: ${result.value}`;
             } catch (error) {
