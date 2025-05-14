@@ -99,8 +99,9 @@
                 
                 // Display the result
                 document.getElementById("result").textContent = `PET-värde: ${result.result.toFixed(1)} °C`;
-                    const { listtime, listTa, listPET, listTmrt, RH, Ws } = result.bigdata;
-                createTable(["Tid", "PET °C", "Air Temp °C"], [listtime, listTa, listPET]);                
+                const { listtime, listTa, listPET, listTmrt, RH, Ws } = result.bigdata;
+                console.log(result.bigdata)
+                //createTable(["Tid", "PET °C", "Air Temp °C"], [listtime, listTa, listPET]);                
             } catch (error) {
                 document.getElementById("result").textContent = `Error: ${error.message}`;
             }
