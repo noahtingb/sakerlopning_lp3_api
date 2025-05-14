@@ -86,11 +86,50 @@
                 
                 // Display the result
                 document.getElementById("result").textContent = `PET-värde: ${result.result.toFixed(1)} °C`;
-                
+                    const { listtime, listTa, listPET, listTmrt, RH, Ws } = result.bigdata;
+                createTable(["Tid", "PET °C", "Air Temp °C"], [listtime, listTa, listPET]);                
             } catch (error) {
                 document.getElementById("result").textContent = `Error: ${error.message}`;
             }
         });
+
+        function createTable(headers, lists) {
+            const tableContainer = document.getElementById("table-container");
+            tableContainer.innerHTML = ""; // Clear any existing table
+
+            const table = document.createElement("table");
+
+            // Create table header
+            const thead = document.createElement("thead");
+            const headerRow = document.createElement("tr");
+            headers.forEach(header => {
+                const th = document.createElement("th");
+                th.textContent = header;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            // Create table body
+            const tbody = document.createElement("tbody");
+
+            // Determine the number of rows
+            const numRows = lists[0].length;
+
+            for (let i = 0; i < numRows; i++) {
+                const tr = document.createElement("tr");
+                lists.forEach(list => {
+                    const td = document.createElement("td");
+                    td.textContent = list[i];
+                    tr.appendChild(td);
+                });
+                tbody.appendChild(tr);
+            }
+            table.appendChild(tbody);
+
+            // Append table to container
+            tableContainer.appendChild(table);
+        }
     </script>
 </body>
 </html>
