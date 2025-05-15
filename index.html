@@ -94,20 +94,20 @@
                     throw new Error(`Error: ${response.status}`);
                 }
 
-                const result = await response.json();
-                console.log(result.result);
+                const result1 = await response.json();
+                console.log(result1.result);
                 
                 // Display the result
-                document.getElementById("result").textContent = `PET-värde: ${result.result.toFixed(1)} °C kl ${result.time}`;
-                const { listtime, listTa, listPET, listTmrt, RH, Ws } = result.bigdata;
-                console.log(result.bigdata)
+                document.getElementById("result").textContent = `PET-värde: ${result1.result.toFixed(1)} °C kl ${result1.time}`;
+                const { listtime, listTa, listPET, listTmrt, RH, Ws } = result1.bigdata;
+                console.log(result1.bigdata)
 
 
             } catch (error) {
                 document.getElementById("result").textContent = `Error: ${error.message}`;
             }
             try{
-                document.getElementById("table-container").innerHTML=createTable([result["bigdata"]["time"], result["bigdata"]["PET"], result["bigdata"]["Ta"]]);
+                document.getElementById("table-container").innerHTML=createTable([result1["bigdata"]["time"], result1["bigdata"]["PET"], result1["bigdata"]["Ta"]]);
             } catch (error){
                 document.getElementById("result").textContent =  document.getElementById("result").textContent+`Error: ${error.message}`;
             }
