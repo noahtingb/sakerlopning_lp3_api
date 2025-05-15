@@ -98,52 +98,43 @@
                 console.log(result.result);
                 
                 // Display the result
-                document.getElementById("result").textContent = `PET-värde: ${result.result.toFixed(1)} °C`;
+                document.getElementById("result").textContent = `PET-värde: ${result.result.toFixed(1)} °C ${result.time}`;
                 const { listtime, listTa, listPET, listTmrt, RH, Ws } = result.bigdata;
                 console.log(result.bigdata)
-                //createTable(["Tid", "PET °C", "Air Temp °C"], [listtime, listTa, listPET]);                
+                const tableH=createTable([listtime, listTa, listPET]);   
+                document.getElementById("table-container").innerHTML=tableH;
             } catch (error) {
                 document.getElementById("result").textContent = `Error: ${error.message}`;
             }
         });
 
-        function createTable(headers, lists) {
-            const tableContainer = document.getElementById("table-container");
-            tableContainer.innerHTML = ""; // Clear any existing table
 
-            const table = document.createElement("table");
+    function createTable(lists) {
+    const headers = ["Tid", "PET °C", "Air Temp °C"] // Static headers
+    let tableHTML = "<table>";
 
-            // Create table header
-            const thead = document.createElement("thead");
-            const headerRow = document.createElement("tr");
-            headers.forEach(header => {
-                const th = document.createElement("th");
-                th.textContent = header;
-                headerRow.appendChild(th);
-            });
-            thead.appendChild(headerRow);
-            table.appendChild(thead);
+    // Generate table headers
+    tableHTML += "<thead><tr>";
+    headers.forEach(header => {
+        tableHTML += `<th>${header}</th>`;
+    });
+    tableHTML += "</tr></thead>";
 
-            // Create table body
-            const tbody = document.createElement("tbody");
+    // Generate table rows
+    tableHTML += "<tbody>";
+    const numRows = lists[0].length; // Assuming all lists have the same length
+    for (let i = 0; i < numRows; i++) {
+        tableHTML += "<tr>";
+        lists.forEach(list => {
+            tableHTML += `<td>${list[i]}</td>`;
+        });
+        tableHTML += "</tr>";
+    }
+    tableHTML += "</tbody>";
 
-            // Determine the number of rows
-            const numRows = lists[0].length;
-
-            for (let i = 0; i < numRows; i++) {
-                const tr = document.createElement("tr");
-                lists.forEach(list => {
-                    const td = document.createElement("td");
-                    td.textContent = list[i];
-                    tr.appendChild(td);
-                });
-                tbody.appendChild(tr);
-            }
-            table.appendChild(tbody);
-
-            // Append table to container
-            tableContainer.appendChild(table);
-        }
+    tableHTML += "</table>";
+    return tableHTML;
+}
     </script>
 </body>
 </html>
