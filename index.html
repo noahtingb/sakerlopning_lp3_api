@@ -98,7 +98,7 @@
                 console.log(result.result);
                 
                 // Display the result
-                document.getElementById("result").textContent = `PET-värde: ${result.result.toFixed(1)} °C ${result.time}`;
+                document.getElementById("result").textContent = `PET-värde: ${result.result.toFixed(1)} °C kl ${result.time}`;
                 const { listtime, listTa, listPET, listTmrt, RH, Ws } = result.bigdata;
                 console.log(result.bigdata)
 
@@ -107,7 +107,7 @@
                 document.getElementById("result").textContent = `Error: ${error.message}`;
             }
             try{
-                document.getElementById("table-container").innerHTML=createTable([result.bigdata.time, result.bigdata.PET, result.bigdata.Ta]);
+                document.getElementById("table-container").innerHTML=createTable([result["bigdata"]["time"], result["bigdata"]["PET"], result["bigdata"]["Ta"]]);
             } catch (error){
                 document.getElementById("result").textContent =  document.getElementById("result").textContent+`Error: ${error.message}`;
             }
