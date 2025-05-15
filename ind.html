@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CV</title>
+    <link rel="icon" type="image/x-icon" href="profile_picture.png">
+
+    <style>
+        /* CSS Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .main-container {
+            display: flex;
+            width: 100%;
+            max-width: 1920px; /* Adjust as needed */
+            margin: 0 auto; /* Center the container */
+        }
+
+        .panel {
+            flex: 1;
+            background-color: #111; /* Light black background for panels */
+            min-width: 0px;
+            position: relative;
+        }
+        /* Flag Icons */
+        .flag-icon {
+            width: 20px; /* Flag size */
+            height: auto;
+        }
+
+        /* Language Dropdown */
+        .language-dropdown {
+            position: relative;
+            display: inline-block; /* Space between menu items and language switcher */
+        }
+        /* Language Switcher in Menu */
+        .language-switcher {
+            
+            position: fixed;
+            display: contents;
+        }
+        .language-switcher select {
+            border-top-width: 0lw;
+            padding: 13px 13px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 0px;
+            background-color: #000;
+            color: white;
+            cursor: pointer;
+        }
+        
+        /* Videos in Panels */
+        .panel video {
+            position: fixed; /* Fix the video in place */
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%); /* Center vertically */
+            width: 100%; /* Full width of the panel */
+            max-width: 100%; /* Ensure it doesn't overflow */
+            height: auto; /* Maintain aspect ratio */
+        }
+        /* Left Panel Video */
+        .panel.left video {
+            left: 0; /* Align to the left */
+        }
+
+        /* Right Panel Video */
+        .panel.right video {
+            right: 0; /* Align to the right */
+        }
+
+
+        .center-content {
+            flex: 100000;
+            width: 1080px; /* Fixed width for center content */
+            max-width: 1080px; /* Fixed width for center content */
+
+        }
+
+        /* Navigation Menu */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 1080px; /* Full width */
+            background-color: #222222;
+            z-index: 1000;
+            display: flex;
+            justify-content: center; /* Center the menu */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Allow menu items to wrap on smaller screens */
+            max-width: 1080px; /* Match center content width */
+            width: 1080px;
+        }
+
+        nav ul li {
+            float: left;
+        }
+
+        nav ul li a {
+            display: block;
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+        }
+
+        /* Sections */
+        section {
+            height: fit-content;
+            padding: 50px 19.2px 19.2px;
+            text-align: left;
+            font-size: 2em;
+        }
+
+        #home {
+            background-color: #f2f2f2;
+        }
+
+        #education {
+            background-color: #d2d2d2;
+        }
+
+        #experience {
+            background-color: #f2f2f2;
+        }
+
+        #achievements {
+            background-color: #d2d2d2;
+        }
+
+        #contact {
+            background-color: #070707;
+            color: #ffffff;
+            height: 25vw; /* Use min-height instead of fixed height */
+        }
+
+        h2 {
+            margin: 0;
+            padding: 0;
+            padding-left:9.6px;
+            font-size: 42px;
+        }
+        h3 {
+            margin: 0;
+            padding-left:38.4px;
+            padding-right:38.4px;            
+            font-size: 24px;
+        }
+        p {
+            align:"justify";
+            margin: 0;
+            padding-left:76.8px;
+            padding-right:76.8px;                        
+            font-size: 18px;
+        }
+        p1 {
+            align:"justify";
+            display: block;            
+            margin: 0;            
+            padding-left:76.8px;
+            padding-right:76.8px;                        
+            font-size: 18px;
+            padding-top:3.24px;            
+            padding-bottom:6.48px;
+        }
+
+        div {
+            margin: 0;
+            padding: 0;
+        }
+
+        @media (max-width: 1080px) {
+            .panel {
+                display: none; /* Hide panels on very small screens */
+            }
+            
+            section {
+                padding: 50px 1vw 1vw;
+            }
+            .center-content {
+                width: 100%; /* Center content takes full width */
+                flex: 1;
+            }
+            nav {
+                width: 100%; /* Full width */
+            }
+            .language-switcher select {
+                padding: 13px 1.203vw;
+            }
+            nav ul {
+                max-width: 100%; /* Allow menu to take full width */
+                width: 100%; /* Allow menu to take full width */
+                
+            }
+
+            nav ul li a {
+                padding: 14px 1.8518vw; /* Further reduce padding for very small screens */
+                font-size: 15px; /* Reduce font size for very small screens */
+            }
+            h2 {
+                padding-left: 0.5vw;
+                font-size: 3.88vw;
+            }
+            h3 {
+                font-size: 2.22vw;
+                padding-left:2vw;
+                padding-right:2vw;
+            }
+    
+            p {
+                font-size: 1.67vw;
+                padding-left:4vw;
+                padding-right:4vw;                                        
+            }
+            p1 {
+                padding-top:0.3px;            
+                font-size: 1.67vw;
+                padding-left:4vw;
+                padding-right:4vw;                                                        
+                padding-bottom:0.6vw;
+            }
+        }
+
+       
+        
+        @media (max-width: 600px) {
+            section {
+                padding: 8.3333vw 1vw 1vw;
+            }
+            nav ul li a {
+                padding: 2.33333vw 1.8518vw; /* Further reduce padding for very small screens */
+                font-size: 2.5vw; /* Reduce font size for very small screens */
+            }
+            
+            .language-switcher select {
+                padding: 2.166666vw 1.2vw;
+                font-size: 2.5vw;
+                border: 0.08888vw solid #ccc;
+            }   
+        }
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 16px;
+            }
+            h3 {
+                font-size: 10.63px;
+            }
+            p {
+                font-size: 8px;
+            }
+            p1 {
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Left Panel -->
+        <div class="panel">
+            
+        </div>
+
+        <!-- Center Content -->
+        <div class="center-content">
+            <!-- Navigation Menu -->
+            <nav>
+                <ul>
+                    <li><a style="background-color:#990000;color:#FFFFFF" href="#home" data-lang="en">Home</a></li>
+                    <li><a style="background-color:#990000;color:#FFFFFF" href="#home" data-lang="sv">Hem</a></li>
+
+                    <li><a style="background-color:#000000;color:#FFFFFF" href="#education" data-lang="en">Education</a></li>
+                    <li><a style="background-color:#000000;color:#FFFFFF" href="#education" data-lang="sv">Utbildning</a></li>
+
+                    <li><a style="background-color:#990000;color:#FFFFFF" href="#experience" data-lang="en">Experience</a></li>
+                    <li><a style="background-color:#990000;color:#FFFFFF" href="#experience" data-lang="sv">Erfarenhet</a></li>
+
+                    <li><a style="background-color:#000000;color:#FFFFFF" href="#achievements" data-lang="en">Achievements</a></li>
+                    <li><a style="background-color:#000000;color:#FFFFFF" href="#achievements" data-lang="sv">Prestationer</a></li>
+
+                    <li><a style="background-color:#990000;color:#FFFFFF" href="#contact" data-lang="en">Contact</a></li>
+                    <li><a style="background-color:#990000;color:#FFFFFF" href="#contact" data-lang="sv">Kontakt</a></li>
+
+                    <!-- Language Switcher -->
+                    <li class="language-switcher">
+                        <select id="language-select">
+                            <option value="en" style="color:#FFFFFF;">English</option>
+                            <option value="sv" style="color:#FFFFFF;">Svenska</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Sections -->
+            <section id="home">
+                <h2 data-lang="en">Hello,</h2>
+                <h2 data-lang="sv">Hej,</h2>
+                <p data-lang="en">I study at the moment Engineering Physics at Chalmers University. I'm live in the central parts of Goutenburg but I'm from the countryside.</p>
+                <p data-lang="sv">Jag studerar för närvarande Teknisk Fysik vid Chalmers Tekniska Högskola. Jag bor i centrala Göteborg, men jag kommer från landsbygden.</p>
+                <p><br><br><br></p>                                
+            </section>
+            
+            <section id="education">
+                <h2 data-lang="en">Education</h2>
+                <h2 data-lang="sv">Utbildning</h2>
+
+                <h3 id="cv_education_h1"></h3>
+                <p1 id="cv_education_p10"></p1>
+                <p1 id="cv_education_p11"></p1>
+                <p1 id="cv_education_p12"></p1>
+                <p1 id="cv_education_p13"></p1>
+                <p1 id="cv_education_p14"></p1>
+                <p1 id="cv_education_p15"></p1>
+
+                <h3 id="cv_education_h2"></h3>
+                <p id="cv_education_p2"></p>
+                <p><br><br><br></p>
+
+            </section>
+            <section id="experience">
+                <h2>My Volunteer Experience</h2>
+                <p>Intize</p>
+                <p>Expect 2025</p>
+                <p>Expect 2024</p>
+                <h2>My Work Experience</h2>
+                <p>Summer Work 2023 - Manufacturing</p>
+                <p>Summer Work 2022 - Manufacturing</p>
+                <p><br><br><br></p>                
+            </section>
+            <section id="achievements">
+                <h2 id="cv_ach_h1"></h2>
+                <h3>5-place in <a href="http://www.matematiktavling.org/statistik/ar?year=HMT+2019%2F2020" target="_blank">HMT 2020</a></h3>
+                <p id="cv_ach_p1"></p> 
+                <p><br><br><br></p>                
+            </section>
+            <section id="contact">
+                <h2>Contact Me</h2>
+                <p>Link for <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" style="color:#FFFFFF;">Contact Information</a></p>
+                <p style="font-size:2px;">I'm sorry</p>
+                <p><br><br><br></p>                                
+            </section>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="panel" style="justify-content: center;align-items: center;">
+            
+        </div>
+    </div>
+</body>    
+
+<script>
+    // JavaScript for Language Switcher
+    document.createElement('p1');    
+    const languageSelect = document.getElementById("language-select");
+    const elements = document.querySelectorAll("[data-lang]");
+    let jsonData = null; // Variable to store the fetched JSON data
+
+    // Function to update content based on selected language
+    function updateContent(language) {
+        // Hide all language-specific elements
+        elements.forEach((element) => {
+            element.style.display = "none";
+        });
+
+        // Show elements for the selected language
+        document.querySelectorAll(`[data-lang="${language}"]`).forEach((element) => {
+            element.style.display = "block";
+        });
+
+        // Update dynamic content from the stored JSON data
+        if (jsonData) {
+            // Update education section
+            document.getElementById('cv_education_h1').textContent = jsonData[language]['edu'].h1;
+            document.getElementById('cv_education_h2').textContent = jsonData[language]['edu'].h2;
+            document.getElementById('cv_education_p10').textContent = jsonData[language]['edu'].p10;
+            document.getElementById('cv_education_p11').textContent = jsonData[language]['edu'].p11;
+            document.getElementById('cv_education_p12').textContent = jsonData[language]['edu'].p12;
+            document.getElementById('cv_education_p13').textContent = jsonData[language]['edu'].p13;
+            document.getElementById('cv_education_p14').textContent = jsonData[language]['edu'].p14;
+            document.getElementById('cv_education_p15').textContent = jsonData[language]['edu'].p15;            
+            document.getElementById('cv_education_p2').textContent = jsonData[language]['edu'].p2;
+            // Update achievements section
+            document.getElementById('cv_ach_h1').textContent = jsonData[language]['ach'].h1;
+            document.getElementById('cv_ach_p1').textContent = jsonData[language]['ach'].p1;
+        }
+    }
+
+    // Fetch JSON data once when the page loads
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            jsonData = data; // Store the JSON data
+
+            // Initialize with the saved language or default to English
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+            languageSelect.value = savedLanguage;
+            updateContent(savedLanguage); // Update content with the saved language
+        })
+        .catch(error => {
+            console.error('Error fetching JSON:', error);
+        });
+
+    // Event listener for language change
+    languageSelect.addEventListener("change", function () {
+        const selectedLanguage = this.value;
+        localStorage.setItem('selectedLanguage', selectedLanguage); // Save the selected language
+        updateContent(selectedLanguage); // Update content
+    });
+</script>
+</html>
