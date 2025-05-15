@@ -123,10 +123,10 @@
 // Format it to "YYYY-MM-DD"
     document.getElementById("result").textContent =  document.getElementById("result").textContent+` ${lists[0][0]}`;
     let formattedDate = dayjs(lists[0][0], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD");
-    <h id="Prog"> Prognos</h>
-    document.getElementById("Prog").textContent = `Prognos den ${formattedDate}`;
+
+
     let headers = [`Tid den ${formattedDate}`, "PET", "Luft Temp"] // Static headers
-    let tableHTML = "<table>";
+    let tableHTML = `<h1> Prognos den ${formattedDate}</h1> <table>`;
 
     // Generate table headers
     tableHTML += "<thead><tr>";
