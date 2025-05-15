@@ -400,17 +400,6 @@
         if (jsonData) {
             // Update education section
 //            document.getElementById('cv_education_h1').textContent = jsonData[language]['edu'].h1;
-//            document.getElementById('cv_education_h2').textContent = jsonData[language]['edu'].h2;
-//            document.getElementById('cv_education_p10').textContent = jsonData[language]['edu'].p10;
-//            document.getElementById('cv_education_p11').textContent = jsonData[language]['edu'].p11;
-//            document.getElementById('cv_education_p12').textContent = jsonData[language]['edu'].p12;
-//            document.getElementById('cv_education_p13').textContent = jsonData[language]['edu'].p13;
-//            document.getElementById('cv_education_p14').textContent = jsonData[language]['edu'].p14;
-//            document.getElementById('cv_education_p15').textContent = jsonData[language]['edu'].p15;            
-//            document.getElementById('cv_education_p2').textContent = jsonData[language]['edu'].p2;
-            // Update achievements section
-//            document.getElementById('cv_ach_h1').textContent = jsonData[language]['ach'].h1;
-//            document.getElementById('cv_ach_p1').textContent = jsonData[language]['ach'].p1;
         }
     }
 
@@ -435,7 +424,7 @@
         localStorage.setItem('selectedLanguage', selectedLanguage); // Save the selected language
         updateContent(selectedLanguage); // Update content
     });
-        document.getElementById("calculate-btn").addEventListener("click", async () => {
+    document.getElementById("calculate-btn").addEventListener("click", async () => {
             // Get values from form inputs
             const age = document.getElementById("age").value;
             const gender = document.getElementById("gender").value;
@@ -482,7 +471,7 @@
                 document.getElementById("result").textContent = `Error: ${error.message}`;
             }
             
-        });
+    });
 
 
     function createTable(lists) {
