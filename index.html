@@ -252,6 +252,12 @@
                 padding-right:4vw;                                                        
                 padding-bottom:0.6vw;
             }
+            table {
+                margin: 18.52vw auto;
+                border-collapse: collapse;
+                width: 80%;
+                text-align: center;
+            }
         }
 
        
@@ -283,6 +289,12 @@
             }
             p1 {
                 font-size: 8px;
+            }
+            table {
+                margin: 8.89px auto;
+                border-collapse: collapse;
+                width: 80%;
+                text-align: center;
             }
         }
     </style>
@@ -486,7 +498,7 @@
         let formattedDate = dayjs(lists[0][0], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD");
     
     
-        let headers = [`Tid den`, "PET", "Luft Temp"] // Static headers
+        let headers = [`Tid`, "PET", "Luft Temp"] // Static headers
         let tableHTML = `<h2> Prognos den ${formattedDate}</h2> <table>`;
     
         // Generate table headers
