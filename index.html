@@ -141,7 +141,7 @@
     for (let i = 0; i < numRows; i++) {
         tableHTML += "<tr>";
         let date = new Date(lists[0][i]);
-        tableHTML += `<td>$kl {date.getHours()}</td> <td>${lists[1][i].toFixed(1)} °C</td> <td>${lists[2][i].toFixed(1)} °C</td>`;
+        tableHTML += `<td>kl ${date.getHours()}</td> <td>${lists[1][i].toFixed(1)} °C</td> <td>${lists[2][i].toFixed(1)} °C</td>`;
         
         tableHTML += "</tr>";
     }
