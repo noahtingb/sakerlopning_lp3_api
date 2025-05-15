@@ -116,7 +116,15 @@
 
 
     function createTable(lists) {
-    const headers = ["Tid", "PET °C", "Air Temp °C"] // Static headers
+    let dayjs = require('dayjs');
+
+// Input string in "YYYY-MM-DD HH:mm:ss" forma
+
+// Format it to "YYYY-MM-DD"
+    let formattedDate = dayjs(lists[0][0], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD");
+
+
+    let headers = [`Tid den ${formattedDate}`, "PET °C", "Air Temp °C"] // Static headers
     let tableHTML = "<table>";
 
     // Generate table headers
@@ -131,8 +139,8 @@
     const numRows = lists[0].length; // Assuming all lists have the same length
     for (let i = 0; i < numRows; i++) {
         tableHTML += "<tr>";
-        
-        tableHTML += `<td>${lists[0][i]}</td> <td>${list[1][i].toFixed(1)}</td> <td>${list[2][i].toFixed(1)}</td>`;
+        let date = new Date(lists[0][i]);
+        tableHTML += `<td>${date.getHours()}</td> <td>${list[1][i].toFixed(1)}</td> <td>${list[2][i].toFixed(1)}</td>`;
         
         tableHTML += "</tr>";
     }
