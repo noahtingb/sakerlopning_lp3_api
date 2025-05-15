@@ -99,7 +99,7 @@
                 console.log(result1.result);
                 
                 // Display the result
-                document.getElementById("result").textContent = `PET-värde: ${result1.result.toFixed(1)} °C kl ${result1.time}`;
+                document.getElementById("result").textContent = `Dagens maximala PET-värde: ${result1.result.toFixed(1)} °C kl ${result1.time}`;
                 const { listtime, listTa, listPET, listTmrt, RH, Ws } = result1.bigdata;
                 console.log(result1.bigdata)
                 let listan1 = [ result1.bigdata["time"], result1.bigdata["PET"], result1.bigdata["Ta"]];
@@ -121,7 +121,7 @@
 // Input string in "YYYY-MM-DD HH:mm:ss" forma
 
 // Format it to "YYYY-MM-DD"
-    document.getElementById("result").textContent =  document.getElementById("result").textContent+` ${lists[0][0]}`;
+    //document.getElementById("result").textContent =  document.getElementById("result").textContent+` ${lists[0][0]}`;
     let formattedDate = dayjs(lists[0][0], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD");
 
 
