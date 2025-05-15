@@ -101,10 +101,15 @@
                 document.getElementById("result").textContent = `PET-värde: ${result.result.toFixed(1)} °C ${result.time}`;
                 const { listtime, listTa, listPET, listTmrt, RH, Ws } = result.bigdata;
                 console.log(result.bigdata)
-                const tableH=createTable([listtime, listTa, listPET]);   
-                document.getElementById("table-container").innerHTML=tableH;
+                const tableH=createTable([result.bigdata.time, result.bigdata.PET, result.bigdata.Ta]);   
+
             } catch (error) {
                 document.getElementById("result").textContent = `Error: ${error.message}`;
+            }
+            try{
+                document.getElementById("table-container").innerHTML=tableH;
+            } catch (error){
+                document.getElementById("result").textContent =  document.getElementById("result").textContent+`Error: ${error.message}`;
             }
         });
 
