@@ -337,7 +337,6 @@
             <section id="education">
                 <h2 data-lang="en">PET calculation</h2>
                 <h2 data-lang="sv">PET beräkning</h2>
-                    <h1>PET mod. Calculator</h1>
                 <form id="calculator-form">
                     <label for="age">Ålder:</label>
                     <input type="number" id="age" name="age" required>
@@ -408,7 +407,7 @@
         // Update dynamic content from the stored JSON data
         if (jsonData) {
             // Update education section
-//            document.getElementById('cv_education_h1').textContent = jsonData[language]['edu'].h1;
+//            document.getElementById('cv_education_h2').textContent = jsonData[language]['edu'].h2;
         }
     }
 
@@ -488,7 +487,7 @@
     
     
         let headers = [`Tid den ${formattedDate}`, "PET", "Luft Temp"] // Static headers
-        let tableHTML = `<h1> Prognos den ${formattedDate}</h1> <table>`;
+        let tableHTML = `<h2> Prognos den ${formattedDate}</h2> <table>`;
     
         // Generate table headers
         tableHTML += "<thead><tr>";
