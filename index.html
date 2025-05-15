@@ -117,15 +117,15 @@
 
 
     function createTable(lists) {
-
+  
 // Input string in "YYYY-MM-DD HH:mm:ss" forma
 
 // Format it to "YYYY-MM-DD"
     document.getElementById("result").textContent =  document.getElementById("result").textContent+` ${lists[0][0]}`;
     let formattedDate = dayjs(lists[0][0], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD");
-
-
-    let headers = [`Tid den ${formattedDate}`, "PET °C", "Air Temp °C"] // Static headers
+    <h id="Prog"> Prognos</h>
+    document.getElementById("Prog").textContent = `Prognos den ${formattedDate}`;
+    let headers = [`Tid den ${formattedDate}`, "PET", "Luft Temp"] // Static headers
     let tableHTML = "<table>";
 
     // Generate table headers
@@ -141,7 +141,7 @@
     for (let i = 0; i < numRows; i++) {
         tableHTML += "<tr>";
         let date = new Date(lists[0][i]);
-        tableHTML += `<td>${date.getHours()}</td> <td>${lists[1][i].toFixed(1)}</td> <td>${lists[2][i].toFixed(1)}</td>`;
+        tableHTML += `<td>$kl {date.getHours()}</td> <td>${lists[1][i].toFixed(1)} °C</td> <td>${lists[2][i].toFixed(1)} °C</td>`;
         
         tableHTML += "</tr>";
     }
