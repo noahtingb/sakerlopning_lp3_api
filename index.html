@@ -39,7 +39,7 @@
     </style>
 </head>
 <body>
-    <h1>API Calculator</h1>
+    <h1>PET mod. Calculator</h1>
     <form id="calculator-form">
         <label for="age">Ålder:</label>
         <input type="number" id="age" name="age" required>
@@ -101,9 +101,8 @@
                 document.getElementById("result").textContent = `PET-värde: ${result1.result.toFixed(1)} °C kl ${result1.time}`;
                 const { listtime, listTa, listPET, listTmrt, RH, Ws } = result1.bigdata;
                 console.log(result1.bigdata)
-                const listan1 =[ result1.bigdata["time"], result1.bigdata["PET"], result1.bigdata["Ta"]];
-
-
+                const listan1 = [ result1.bigdata["time"], result1.bigdata["PET"], result1.bigdata["Ta"]];
+                document.getElementById("result").textContent =  document.getElementById("result").textContent+` ${listan1}`;
             } catch (error) {
                 document.getElementById("result").textContent = `Error: ${error.message}`;
             }
