@@ -101,7 +101,7 @@
                 document.getElementById("result").textContent = `PET-värde: ${result1.result.toFixed(1)} °C kl ${result1.time}`;
                 const { listtime, listTa, listPET, listTmrt, RH, Ws } = result1.bigdata;
                 console.log(result1.bigdata)
-                const listan1 =[ result1["bigdata"]["time"], result1["bigdata"]["PET"], result1["bigdata"]["Ta"]];
+                const listan1 =[ result1.bigdata["time"], result1.bigdata["PET"], result1.bigdata["Ta"]];
 
 
             } catch (error) {
