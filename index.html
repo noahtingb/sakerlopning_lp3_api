@@ -131,9 +131,9 @@
     const numRows = lists[0].length; // Assuming all lists have the same length
     for (let i = 0; i < numRows; i++) {
         tableHTML += "<tr>";
-        lists.forEach(list => {
-            tableHTML += `<td>${list[i]}</td>`;
-        });
+        
+        tableHTML += `<td>${lists[0][i]}</td> <td>${list[1][i].toFixed(1)}</td> <td>${list[2][i].toFixed(1)}</td>`;
+        
         tableHTML += "</tr>";
     }
     tableHTML += "</tbody>";
