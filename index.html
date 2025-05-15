@@ -103,7 +103,7 @@
                 const { listtime, listTa, listPET, listTmrt, RH, Ws } = result1.bigdata;
                 console.log(result1.bigdata)
                 let listan1 = [ result1.bigdata["time"], result1.bigdata["PET"], result1.bigdata["Ta"]];
-                document.getElementById("result").textContent =  document.getElementById("result").textContent+` ${listan1}`;
+                //document.getElementById("result").textContent =  document.getElementById("result").textContent+` ${listan1}`;
                 try{
                     document.getElementById("table-container").innerHTML=createTable(listan1);
                 } catch (error){
@@ -121,6 +121,7 @@
 // Input string in "YYYY-MM-DD HH:mm:ss" forma
 
 // Format it to "YYYY-MM-DD"
+    document.getElementById("result").textContent =  document.getElementById("result").textContent+` ${lists[0][0]}`;
     let formattedDate = dayjs(lists[0][0], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD");
 
 
