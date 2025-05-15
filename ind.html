@@ -284,14 +284,14 @@
                     <li><a style="background-color:#990000;color:#FFFFFF" href="#home" data-lang="en">Home</a></li>
                     <li><a style="background-color:#990000;color:#FFFFFF" href="#home" data-lang="sv">Hem</a></li>
 
-                    <li><a style="background-color:#000000;color:#FFFFFF" href="#education" data-lang="en">Education</a></li>
-                    <li><a style="background-color:#000000;color:#FFFFFF" href="#education" data-lang="sv">Utbildning</a></li>
+                    <li><a style="background-color:#000000;color:#FFFFFF" href="#education" data-lang="en">Calculate PET</a></li>
+                    <li><a style="background-color:#000000;color:#FFFFFF" href="#education" data-lang="sv">Beräkna PET</a></li>
 
-                    <li><a style="background-color:#990000;color:#FFFFFF" href="#experience" data-lang="en">Experience</a></li>
-                    <li><a style="background-color:#990000;color:#FFFFFF" href="#experience" data-lang="sv">Erfarenhet</a></li>
+                    <li><a style="background-color:#990000;color:#FFFFFF" href="#experience" data-lang="en">Prognose</a></li>
+                    <li><a style="background-color:#990000;color:#FFFFFF" href="#experience" data-lang="sv">Prognos</a></li>
 
-                    <li><a style="background-color:#000000;color:#FFFFFF" href="#achievements" data-lang="en">Achievements</a></li>
-                    <li><a style="background-color:#000000;color:#FFFFFF" href="#achievements" data-lang="sv">Prestationer</a></li>
+                    <li><a style="background-color:#000000;color:#FFFFFF" href="#achievements" data-lang="en">Other</a></li>
+                    <li><a style="background-color:#000000;color:#FFFFFF" href="#achievements" data-lang="sv">Övrigt</a></li>
 
                     <li><a style="background-color:#990000;color:#FFFFFF" href="#contact" data-lang="en">Contact</a></li>
                     <li><a style="background-color:#990000;color:#FFFFFF" href="#contact" data-lang="sv">Kontakt</a></li>
@@ -310,8 +310,8 @@
             <section id="home">
                 <h2 data-lang="en">Hello,</h2>
                 <h2 data-lang="sv">Hej,</h2>
-                <p data-lang="en">I study at the moment Engineering Physics at Chalmers University. I'm live in the central parts of Goutenburg but I'm from the countryside.</p>
-                <p data-lang="sv">Jag studerar för närvarande Teknisk Fysik vid Chalmers Tekniska Högskola. Jag bor i centrala Göteborg, men jag kommer från landsbygden.</p>
+                <p data-lang="en">Bla bla Bla.</p>
+                <p data-lang="sv">Bla Bla Bla</p>
                 <p><br><br><br></p>                                
             </section>
             
@@ -333,18 +333,12 @@
 
             </section>
             <section id="experience">
-                <h2>My Volunteer Experience</h2>
-                <p>Intize</p>
-                <p>Expect 2025</p>
-                <p>Expect 2024</p>
-                <h2>My Work Experience</h2>
-                <p>Summer Work 2023 - Manufacturing</p>
-                <p>Summer Work 2022 - Manufacturing</p>
+                <h2>Hahaha/h2>
                 <p><br><br><br></p>                
             </section>
             <section id="achievements">
                 <h2 id="cv_ach_h1"></h2>
-                <h3>5-place in <a href="http://www.matematiktavling.org/statistik/ar?year=HMT+2019%2F2020" target="_blank">HMT 2020</a></h3>
+                <h3>Något <a href="enlänk">något</a></h3>
                 <p id="cv_ach_p1"></p> 
                 <p><br><br><br></p>                
             </section>
@@ -385,18 +379,18 @@
         // Update dynamic content from the stored JSON data
         if (jsonData) {
             // Update education section
-            document.getElementById('cv_education_h1').textContent = jsonData[language]['edu'].h1;
-            document.getElementById('cv_education_h2').textContent = jsonData[language]['edu'].h2;
-            document.getElementById('cv_education_p10').textContent = jsonData[language]['edu'].p10;
-            document.getElementById('cv_education_p11').textContent = jsonData[language]['edu'].p11;
-            document.getElementById('cv_education_p12').textContent = jsonData[language]['edu'].p12;
-            document.getElementById('cv_education_p13').textContent = jsonData[language]['edu'].p13;
-            document.getElementById('cv_education_p14').textContent = jsonData[language]['edu'].p14;
-            document.getElementById('cv_education_p15').textContent = jsonData[language]['edu'].p15;            
-            document.getElementById('cv_education_p2').textContent = jsonData[language]['edu'].p2;
+//            document.getElementById('cv_education_h1').textContent = jsonData[language]['edu'].h1;
+//            document.getElementById('cv_education_h2').textContent = jsonData[language]['edu'].h2;
+//            document.getElementById('cv_education_p10').textContent = jsonData[language]['edu'].p10;
+//            document.getElementById('cv_education_p11').textContent = jsonData[language]['edu'].p11;
+//            document.getElementById('cv_education_p12').textContent = jsonData[language]['edu'].p12;
+//            document.getElementById('cv_education_p13').textContent = jsonData[language]['edu'].p13;
+//            document.getElementById('cv_education_p14').textContent = jsonData[language]['edu'].p14;
+//            document.getElementById('cv_education_p15').textContent = jsonData[language]['edu'].p15;            
+//            document.getElementById('cv_education_p2').textContent = jsonData[language]['edu'].p2;
             // Update achievements section
-            document.getElementById('cv_ach_h1').textContent = jsonData[language]['ach'].h1;
-            document.getElementById('cv_ach_p1').textContent = jsonData[language]['ach'].p1;
+//            document.getElementById('cv_ach_h1').textContent = jsonData[language]['ach'].h1;
+//            document.getElementById('cv_ach_p1').textContent = jsonData[language]['ach'].p1;
         }
     }
 
@@ -421,5 +415,84 @@
         localStorage.setItem('selectedLanguage', selectedLanguage); // Save the selected language
         updateContent(selectedLanguage); // Update content
     });
+        document.getElementById("calculate-btn").addEventListener("click", async () => {
+            // Get values from form inputs
+            const age = document.getElementById("age").value;
+            const gender = document.getElementById("gender").value;
+            const weight = document.getElementById("weight").value;
+            const location = document.getElementById("location").value;
+            const pace = document.getElementById("pace").value;
+
+            // Create data object
+            const data = {
+                age: parseInt(age),
+                gender,
+                weight: parseFloat(weight),
+                location,
+                pace: parseFloat(pace),
+            };
+
+            try {
+                // Make API request
+                const response = await fetch("https://backend-ylt6.onrender.com/calculate", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status}`);
+                }
+
+                const result1 = await response.json();
+                console.log(result1.result);
+                
+                // Display the result
+                document.getElementById("result").textContent = `Dagens maximala PET-värde: ${result1.result.toFixed(1)} °C kl ${result1.time}`;
+                const { listtime, listTa, listPET, listTmrt, RH, Ws } = result1.bigdata;
+                console.log(result1.bigdata)
+                let listan1 = [ result1.bigdata["time"], result1.bigdata["PET"], result1.bigdata["Ta"]];
+                //document.getElementById("result").textContent =  document.getElementById("result").textContent+` ${listan1}`;
+                try{
+                    document.getElementById("table-container").innerHTML=createTable(listan1);
+                } catch (error){
+                    document.getElementById("result").textContent =  document.getElementById("result").textContent+`Error: ${error.message}`;
+                }
+            } catch (error) {
+                document.getElementById("result").textContent = `Error: ${error.message}`;
+            }
+            
+        });
+
+
+    function createTable(lists) {
+        let formattedDate = dayjs(lists[0][0], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD");
+    
+    
+        let headers = [`Tid den ${formattedDate}`, "PET", "Luft Temp"] // Static headers
+        let tableHTML = `<h1> Prognos den ${formattedDate}</h1> <table>`;
+    
+        // Generate table headers
+        tableHTML += "<thead><tr>";
+        headers.forEach(header => {
+            tableHTML += `<th>${header}</th>`;
+        });
+        tableHTML += "</tr></thead>";
+    
+        // Generate table rows
+        tableHTML += "<tbody>";
+        const numRows = lists[0].length; // Assuming all lists have the same length
+        for (let i = 0; i < numRows; i++) {
+            tableHTML += "<tr>";
+            let date = new Date(lists[0][i]);
+            tableHTML += `<td>kl ${date.getHours()}</td> <td>${lists[1][i].toFixed(1)} °C</td> <td>${lists[2][i].toFixed(1)} °C</td>`;
+            
+            tableHTML += "</tr>";
+        }
+        tableHTML += "</tbody>";
+
+        tableHTML += "</table>";
+        return tableHTML;
+    }
 </script>
 </html>
