@@ -134,6 +134,7 @@
             text-align: left;
         }
         th, td {
+            font-size: 30px;
             border: 1px solid black;
             padd
         }
@@ -257,6 +258,9 @@
                 width: 80%;
                 text-align: center;
             }
+            th, td {
+                font-size: 2.7777vw;
+            }
         }
 
        
@@ -297,6 +301,9 @@
                 border-collapse: collapse;
                 width: 80%;
                 text-align: center;
+            }
+            th, td {
+                font-size: 13.3333px;
             }
         }
     </style>
@@ -474,7 +481,7 @@
                 if (!response.ok) {
                     throw new Error(`Error: ${response.status}`);
                 }
-
+                document.getElementById("result").textContent = `Beräknar just nu!!`;
                 const result1 = await response.json();
                 console.log(result1.result);
                 
@@ -499,7 +506,6 @@
     function createTable(lists) {
         let formattedDate = dayjs(lists[0][0], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD");
     
-    
         let headers = [`Tid`, "PET", "Luft Temp"] // Static headers
         let tableHTML = `<h2> Prognos den ${formattedDate}</h2> <table>`;
     
@@ -513,7 +519,7 @@
         // Generate table rows
         tableHTML += "<tbody>";
         const numRows = lists[0].length; // Assuming all lists have the same length
-        for (let i = 0; i < numRows; i++) {
+        for (let i = 0; i < 24; i++) {
             tableHTML += "<tr>";
             let date = new Date(lists[0][i]);
             tableHTML += `<td>kl ${date.getHours()}</td> <td>${lists[1][i].toFixed(1)} °C</td> <td>${lists[2][i].toFixed(1)} °C</td>`;
@@ -521,7 +527,30 @@
             tableHTML += "</tr>";
         }
         tableHTML += "</tbody>";
+        tableHTML += "</table>";
 
+
+        let formattedDate = dayjs(lists[0][24], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD");
+    
+        let headers = [`Tid`, "PET", "Luft Temp"] // Static headers
+        let tableHTML = `<h2> Prognos den ${formattedDate}</h2> <table>`;
+    
+        // Generate table headers
+        tableHTML += "<thead><tr>";
+        headers.forEach(header => {
+            tableHTML += `<th>${header}</th>`;
+        });
+        tableHTML += "</tr></thead>";
+    
+        // Generate table rows
+        tableHTML += "<tbody>";        
+        for (let i = 24; i < numRows; i++) {
+            tableHTML += "<tr>";
+            let date = new Date(lists[0][i]);
+            tableHTML += `<td>kl ${date.getHours()}</td> <td>${lists[1][i].toFixed(1)} °C</td> <td>${lists[2][i].toFixed(1)} °C</td>`;
+            tableHTML += "</tr>";
+        }
+        tableHTML += "</tbody>";
         tableHTML += "</table>";
         return tableHTML;
     }
