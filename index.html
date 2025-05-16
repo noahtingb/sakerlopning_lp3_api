@@ -506,7 +506,7 @@
     function createTable(lists) {
         let formattedDate = dayjs(lists[0][0], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD");
     
-        let headers = [`Tid`, "PET", "Luft Temp"] // Static headers
+        const headers = [`Tid`, "PET", "Luft Temp"] // Static headers
         let tableHTML = `<h2> Prognos den ${formattedDate}</h2> <table>`;
     
         // Generate table headers
@@ -532,8 +532,7 @@
 
         formattedDate = dayjs(lists[0][24], "YYYY-MM-DD HH:mm:ss").format("YYYY-MM-DD");
     
-        headers = [`Tid`, "PET", "Luft Temp"] // Static headers
-        tableHTML = `<h2> Prognos den ${formattedDate}</h2> <table>`;
+        tableHTML += `<h2> Prognos den ${formattedDate}</h2> <table>`;
     
         // Generate table headers
         tableHTML += "<thead><tr>";
